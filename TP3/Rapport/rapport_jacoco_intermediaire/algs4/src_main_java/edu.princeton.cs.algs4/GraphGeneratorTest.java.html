@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>GraphGeneratorTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">GraphGeneratorTest (2017-10-23 09:37:59)</a> &gt; <a href="../../index.html" class="el_group">algs4</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">edu.princeton.cs.algs4</a> &gt; <span class="el_source">GraphGeneratorTest.java</span></div><h1>GraphGeneratorTest.java</h1><pre class="source lang-java linenums">package edu.princeton.cs.algs4;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+<span class="fc" id="L7">public class GraphGeneratorTest {</span>
+
+	
+	// Simple EC
+	/**
+	 * Cas de test : V valide et p invalide
+	 */
+	@Test
+	public void testSimpleEC_1() {
+		try {
+<span class="nc" id="L17">			Graph simple = GraphGenerator.simple(15, 1.01);</span>
+<span class="nc" id="L18">		    fail();</span>
+<span class="pc" id="L19">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L21">	}</span>
+	
+	/**
+	 * Cas de test : V invalide et p valide
+	 */
+	@Test
+	public void testSimpleEC_2() {
+		try {
+<span class="nc" id="L29">			Graph simple = GraphGenerator.simple(-1, 0.32);</span>
+<span class="nc" id="L30">		    fail();</span>
+<span class="pc" id="L31">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L33">	}</span>
+	
+	// Simple AC
+	/**
+	 * Cas de test : V valide et p invalide
+	 */
+	@Test
+	public void testSimpleAC_1() {
+		try {
+<span class="nc" id="L42">			Graph simple = GraphGenerator.simple(15, 1.01);</span>
+<span class="nc" id="L43">		    fail();</span>
+<span class="pc" id="L44">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L46">	}</span>
+	
+	/**
+	 * Cas de test : V invalide et p valide
+	 */
+	@Test
+	public void testSimpleAC_2() {
+		try {
+<span class="nc" id="L54">			Graph simple = GraphGenerator.simple(-6, 0.32);</span>
+<span class="nc" id="L55">		    fail();</span>
+<span class="pc" id="L56">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L58">	}</span>
+	
+	/**
+	 * Cas de test : V invalide et p invalide
+	 */
+	@Test
+	public void testSimpleAC_3() {
+		try {
+<span class="nc" id="L66">			Graph simple = GraphGenerator.simple(-3, 1.03);</span>
+<span class="nc" id="L67">		    fail();</span>
+<span class="pc" id="L68">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L70">	}</span>
+	
+	/**
+	 * Cas de test : V valide et p valide
+	 */
+	@Test
+	public void testSimpleAC_4() {
+<span class="fc" id="L77">		Graph simple = GraphGenerator.simple(4, 0.45);</span>
+<span class="fc" id="L78">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L79">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, simple.V() , 4);</span>
+<span class="fc" id="L80">	}	</span>
+
+	
+	/**
+	 * Cas de test : V minimum et p valide
+	 */
+	@Test
+	public void testSimpleLimite_MinV() {
+<span class="fc" id="L88">		Graph simple = GraphGenerator.simple(0, 0.45);</span>
+<span class="fc" id="L89">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L90">		assertEquals(&quot;Le graphe devrait avoir 0 sommets&quot;, simple.V() , 0);</span>
+<span class="fc" id="L91">	}</span>
+	
+	/**
+	 * Cas de test : V minimum + et p valide
+	 */
+	@Test
+	public void testSimpleLimite_MinPlusV() {
+<span class="fc" id="L98">		Graph simple = GraphGenerator.simple(1, 0.45);</span>
+<span class="fc" id="L99">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L100">		assertEquals(&quot;Le graphe devrait avoir 1 sommets&quot;, simple.V() , 1);</span>
+<span class="fc" id="L101">	}</span>
+	
+	/**
+	 * Cas de test : V valide et p minimum
+	 */
+	@Test
+	public void testSimpleLimite_MinP() {
+<span class="fc" id="L108">		Graph simple = GraphGenerator.simple(4, 0);</span>
+<span class="fc" id="L109">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L110">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, simple.V() , 4);</span>
+<span class="fc" id="L111">		assertEquals(&quot;Le graphe devrait avoir 0 arÃªtes&quot;, simple.E() , 0);</span>
+<span class="fc" id="L112">	}</span>
+	
+	/**
+	 * Cas de test : V valide et p minimum +
+	 */
+	@Test
+	public void testSimpleLimite_MinPlusP() {
+<span class="fc" id="L119">		Graph simple = GraphGenerator.simple(4, 0.1);</span>
+<span class="fc" id="L120">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L121">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, simple.V() , 4);</span>
+<span class="fc" id="L122">	}</span>
+	
+	/**
+	 * Cas de test : V valide et p moyen
+	 */
+	@Test
+	public void testSimpleLimite_MoyP() {
+<span class="fc" id="L129">		Graph simple = GraphGenerator.simple(4, 0.5);</span>
+<span class="fc" id="L130">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L131">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, simple.V() , 4);</span>
+<span class="fc" id="L132">	}</span>
+	
+	/**
+	 * Cas de test : V valide et p maximum -
+	 */
+	@Test
+	public void testSimpleLimite_MaxMoinsP() {
+<span class="fc" id="L139">		Graph simple = GraphGenerator.simple(4, 0.9);</span>
+<span class="fc" id="L140">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L141">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, simple.V() , 4);</span>
+<span class="fc" id="L142">	}</span>
+	
+	/**
+	 * Cas de test : V valide et p maximum
+	 */
+	@Test
+	public void testSimpleLimite_MaxP() {
+<span class="fc" id="L149">		Graph simple = GraphGenerator.simple(4, 1);</span>
+<span class="fc" id="L150">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L151">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, simple.V() , 4);</span>
+<span class="fc" id="L152">	}</span>
+	
+	
+	// Bipartite EC
+	/**
+	 * Cas de test : V1 valide, V2 valide et p invalide
+	 */
+	@Test
+	public void testBipartiteEC_1() {
+		try {
+<span class="nc" id="L162">			Graph g = GraphGenerator.bipartite(15, 10, 1.01);</span>
+<span class="nc" id="L163">		    fail();</span>
+<span class="pc" id="L164">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L166">	}</span>
+	
+	/**
+	 * Cas de test : V1 invalide, V2 invalide et p valide
+	 */
+	@Test
+	public void testBipartiteEC_2() {
+		try {
+<span class="nc" id="L174">			Graph g = GraphGenerator.bipartite(-3, -4, 0.22);</span>
+<span class="nc" id="L175">		    fail();</span>
+<span class="nc" id="L176">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="nc" id="L178">	}</span>
+	
+	//Bipartite AC
+	/**
+	 * Cas de test : V1 invalide, V2 invalide et p invalide
+	 */
+	@Test
+	public void testBipartiteAC_1() {
+		try {
+<span class="nc" id="L187">			Graph g = GraphGenerator.bipartite(-7, -3, 1.11);</span>
+<span class="nc" id="L188">		    fail();</span>
+<span class="pc" id="L189">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L191">	}</span>
+	
+	/**
+	 * Cas de test : V1 invalide, V2 invalide et p valide
+	 */
+	@Test
+	public void testBipartiteAC_2() {
+		try {
+<span class="nc" id="L199">			Graph g = GraphGenerator.bipartite(-1, -1, 0.32);</span>
+<span class="nc" id="L200">		    fail();</span>
+<span class="nc" id="L201">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="nc" id="L203">	}</span>
+	
+	/**
+	 * Cas de test : V1 invalide, V2 valide et p valide
+	 */
+	@Test
+	public void testBipartiteAC_3() {
+		try {
+<span class="fc" id="L211">			Graph g = GraphGenerator.bipartite(-1, 1, 0.32);</span>
+<span class="nc" id="L212">		    fail();</span>
+<span class="nc" id="L213">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="nc" id="L215">	}</span>
+	
+	/**
+	 * Cas de test : V1 invalide, V2 valide et p invalide
+	 */
+	@Test
+	public void testBipartiteAC_4() {
+		try {
+<span class="nc" id="L223">			Graph g = GraphGenerator.bipartite(-1, 1, 1.01);</span>
+<span class="nc" id="L224">		    fail();</span>
+<span class="pc" id="L225">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L227">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 invalide et p invalide
+	 */
+	@Test
+	public void testBipartiteAC_5() {
+		try {
+<span class="nc" id="L235">			Graph g = GraphGenerator.bipartite(1, -1, 1.01);</span>
+<span class="nc" id="L236">		    fail();</span>
+<span class="pc" id="L237">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L239">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 valide et p invalide
+	 */
+	@Test
+	public void testBipartiteAC_6() {
+		try {
+<span class="nc" id="L247">			Graph g = GraphGenerator.bipartite(1, 1, 1.01);</span>
+<span class="nc" id="L248">		    fail();</span>
+<span class="pc" id="L249">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L251">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 invalide et p valide
+	 */
+	@Test
+	public void testBipartiteAC_7() {
+		try {
+<span class="nc" id="L259">			Graph g = GraphGenerator.bipartite(1, -2, 0.32);</span>
+<span class="nc" id="L260">		    fail();</span>
+<span class="nc" id="L261">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="nc" id="L263">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 valide et p valide
+	 */
+	@Test
+	public void testBipartiteAC_8() {
+<span class="fc" id="L270">		Graph g = GraphGenerator.bipartite(1, 2, 0.32);</span>
+<span class="fc" id="L271">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L272">		assertEquals(&quot;Le graphe devrait avoir 3 sommets&quot;, g.V() , 3);</span>
+<span class="fc" id="L273">	}</span>
+	
+	/**
+	 * Cas de test : V1 minimum, V2 valide et p valide
+	 */
+	@Test
+	public void testBipartiteLimite_MinV1() {
+<span class="fc" id="L280">		Graph g = GraphGenerator.bipartite(0, 2, 0.45);</span>
+<span class="fc" id="L281">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L282">		assertEquals(&quot;Le graphe devrait avoir 2 sommets&quot;, g.V() , 2);</span>
+<span class="fc" id="L283">	}</span>
+	
+	/**
+	 * Cas de test : V1 minimum +, V2 valide et p valide
+	 */
+	@Test
+	public void testBipartiteLimite_MinPlusV1() {
+<span class="fc" id="L290">		Graph g = GraphGenerator.bipartite(1, 2, 0.45);</span>
+<span class="fc" id="L291">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L292">		assertEquals(&quot;Le graphe devrait avoir 3 sommets&quot;, g.V() , 3);</span>
+<span class="fc" id="L293">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 min et p valide
+	 */
+	@Test
+	public void testBipartiteLimite_MinV2() {
+<span class="fc" id="L300">		Graph g = GraphGenerator.bipartite(2, 0, 0.45);</span>
+<span class="fc" id="L301">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L302">		assertEquals(&quot;Le graphe devrait avoir 2 sommets&quot;, g.V() , 2);</span>
+<span class="fc" id="L303">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 min + et p valide
+	 */
+	@Test
+	public void testBipartiteLimite_MinPlusV2() {
+<span class="fc" id="L310">		Graph g = GraphGenerator.bipartite(2, 1, 0.45);</span>
+<span class="fc" id="L311">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L312">		assertEquals(&quot;Le graphe devrait avoir 3 sommets&quot;, g.V() , 3);</span>
+<span class="fc" id="L313">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 valide et p min
+	 */
+	@Test
+	public void testBipartiteLimite_MinP() {
+<span class="fc" id="L320">		Graph g = GraphGenerator.bipartite(2, 2, 0.0);</span>
+<span class="fc" id="L321">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L322">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, g.V() , 4);</span>
+<span class="fc" id="L323">		assertEquals(&quot;Le graphe devrait avoir 0 arÃªtes&quot;, g.E(), 0);</span>
+<span class="fc" id="L324">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 valide et p min +
+	 */
+	@Test
+	public void testBipartiteLimite_MinPlusP() {
+<span class="fc" id="L331">		Graph g = GraphGenerator.bipartite(2, 2, 0.1);</span>
+<span class="fc" id="L332">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L333">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, g.V() , 4);</span>
+<span class="fc" id="L334">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 valide et p moy
+	 */
+	@Test
+	public void testBipartiteLimite_MoyP() {
+<span class="fc" id="L341">		Graph g = GraphGenerator.bipartite(2, 2, 0.5);</span>
+<span class="fc" id="L342">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L343">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, g.V() , 4);</span>
+<span class="fc" id="L344">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 valide et p max -
+	 */
+	@Test
+	public void testBipartiteLimite_MaxMoinsP() {
+<span class="fc" id="L351">		Graph g = GraphGenerator.bipartite(2, 2, 0.9);</span>
+<span class="fc" id="L352">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L353">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, g.V() , 4);</span>
+<span class="fc" id="L354">	}</span>
+	
+	/**
+	 * Cas de test : V1 valide, V2 valide et p max
+	 */
+	@Test
+	public void testBipartiteLimite_MaxP() {
+<span class="fc" id="L361">		Graph g = GraphGenerator.bipartite(2, 2, 1);</span>
+<span class="fc" id="L362">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, g.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L363">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, g.V() , 4);</span>
+<span class="fc" id="L364">	}</span>
+	
+	
+	//Regular EC
+	/**
+	 * Cas de test : V pair et k pair
+	 */
+	@Test
+	public void testRegularEC_1() {
+<span class="fc" id="L373">		Graph g = GraphGenerator.regular(2, 14);</span>
+<span class="fc" id="L374">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L375">		assertEquals(&quot;Le graphe devrait avoir 2 sommets&quot;, g.V() , 2);</span>
+<span class="fc" id="L376">	}</span>
+	
+	/**
+	 * Cas de test : V impair et k impair
+	 */
+	@Test
+	public void testRegularEC_2() {
+		try {
+<span class="nc" id="L384">			Graph g = GraphGenerator.regular(1, 1);</span>
+<span class="nc" id="L385">		    fail();</span>
+<span class="pc" id="L386">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L388">	}</span>
+	
+	/**
+	 * Cas de test : V invalide et k invalide
+	 */
+	@Test
+	public void testRegularEC_3() {
+		try {
+<span class="nc" id="L396">			Graph g = GraphGenerator.regular(-1, -1);</span>
+<span class="nc" id="L397">		    fail();</span>
+<span class="pc" id="L398">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L400">	}</span>
+	
+	//Regular AC
+	/**
+	 * Cas de test : V pair et k pair
+	 */
+	@Test
+	public void testRegularAC_1() {
+<span class="fc" id="L408">		Graph g = GraphGenerator.regular(2, 14);</span>
+<span class="fc" id="L409">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L410">		assertEquals(&quot;Le graphe devrait avoir 2 sommets&quot;, g.V() , 2);</span>
+<span class="fc" id="L411">	}</span>
+	
+	/**
+	 * Cas de test : V pair et k invalide
+	 */
+	@Test
+	public void testRegularAC_2() {
+		try {
+<span class="nc" id="L419">			Graph g = GraphGenerator.regular(2, -1);</span>
+<span class="nc" id="L420">		    fail();</span>
+<span class="nc" id="L421">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="nc" id="L423">	}</span>
+	
+	/**
+	 * Cas de test : V pair et k impair
+	 */
+	@Test
+	public void testRegularAC_3() {
+<span class="fc" id="L430">		Graph g = GraphGenerator.regular(2, 13);</span>
+<span class="fc" id="L431">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L432">		assertEquals(&quot;Le graphe devrait avoir 2 sommets&quot;, g.V() , 2);</span>
+<span class="fc" id="L433">	}</span>
+	
+	/**
+	 * Cas de test : V impair et k pair
+	 */
+	@Test
+	public void testRegularAC_4() {
+<span class="fc" id="L440">		Graph g = GraphGenerator.regular(1, 14);</span>
+<span class="fc" id="L441">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L442">		assertEquals(&quot;Le graphe devrait avoir 1 sommets&quot;, g.V() , 1);</span>
+<span class="fc" id="L443">	}</span>
+	
+	/**
+	 * Cas de test : V impair et k invalide
+	 */
+	@Test
+	public void testRegularAC_5() {
+		try {
+<span class="nc" id="L451">			Graph g = GraphGenerator.regular(1, -1);</span>
+<span class="nc" id="L452">		    fail();</span>
+<span class="pc" id="L453">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L455">	}</span>
+	
+	/**
+	 * Cas de test : V impair et k impair
+	 */
+	@Test
+	public void testRegularAC_6() {
+		try {
+<span class="nc" id="L463">			Graph g = GraphGenerator.regular(1, 1);</span>
+<span class="nc" id="L464">		    fail();</span>
+<span class="pc" id="L465">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L467">	}</span>
+	
+	/**
+	 * Cas de test : V invalide et k pair
+	 */
+	@Test
+	public void testRegularAC_7() {
+		try {
+<span class="nc" id="L475">			Graph g = GraphGenerator.regular(-1, 14);</span>
+<span class="nc" id="L476">		    fail();</span>
+<span class="pc" id="L477">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L479">	}</span>
+	
+	/**
+	 * Cas de test : V invalide et k invalide
+	 */
+	@Test
+	public void testRegularAC_8() {
+		try {
+<span class="nc" id="L487">			Graph g = GraphGenerator.regular(-1, -1);</span>
+<span class="nc" id="L488">		    fail();</span>
+<span class="pc" id="L489">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L491">	}</span>
+	
+	/**
+	 * Cas de test : V invalide et k impair
+	 */
+	@Test
+	public void testRegularAC_9() {
+		try {
+<span class="nc" id="L499">			Graph g = GraphGenerator.regular(-1, 1);</span>
+<span class="nc" id="L500">		    fail();</span>
+<span class="pc" id="L501">		} catch (IllegalArgumentException expectedException) {</span>
+		}
+<span class="fc" id="L503">	}</span>
+	
+	/**
+	 * Cas de test : V pair min et k pair
+	 */
+	@Test
+	public void testRegularLimite_MinPairV() {
+<span class="fc" id="L510">		Graph g = GraphGenerator.regular(0, 4);</span>
+<span class="fc" id="L511">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L512">		assertEquals(&quot;Le graphe devrait avoir 0 sommets&quot;, g.V() , 0);</span>
+<span class="fc" id="L513">	}</span>
+	
+	/**
+	 * Cas de test : V pair min + et k pair
+	 */
+	@Test
+	public void testRegularLimite_MinPairPlusV() {
+<span class="fc" id="L520">		Graph g = GraphGenerator.regular(2, 4);</span>
+<span class="fc" id="L521">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L522">		assertEquals(&quot;Le graphe devrait avoir 2 sommets&quot;, g.V() , 2);</span>
+<span class="fc" id="L523">	}</span>
+	
+	/**
+	 * Cas de test : V impair min et k pair
+	 */
+	@Test
+	public void testRegularLimite_MinImpairV() {
+<span class="fc" id="L530">		Graph g = GraphGenerator.regular(1, 4);</span>
+<span class="fc" id="L531">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L532">		assertEquals(&quot;Le graphe devrait avoir 1 sommets&quot;, g.V() , 1);</span>
+<span class="fc" id="L533">	}</span>
+	
+	/**
+	 * Cas de test : V impair min + et k pair
+	 */
+	@Test
+	public void testRegularLimite_MinImpairPlusV() {
+<span class="fc" id="L540">		Graph g = GraphGenerator.regular(3, 4);</span>
+<span class="fc" id="L541">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L542">		assertEquals(&quot;Le graphe devrait avoir 3 sommets&quot;, g.V() , 3);</span>
+<span class="fc" id="L543">	}</span>
+	
+	/**
+	 * Cas de test : V pair et k pair min
+	 */
+	@Test
+	public void testRegularLimite_MinPairK() {
+<span class="fc" id="L550">		Graph g = GraphGenerator.regular(4, 0);</span>
+<span class="fc" id="L551">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L552">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, g.V() , 4);</span>
+<span class="fc" id="L553">	}</span>
+	
+	/**
+	 * Cas de test : V pair et k pair min +
+	 */
+	@Test
+	public void testRegularLimite_MinPairPlusK() {
+<span class="fc" id="L560">		Graph g = GraphGenerator.regular(4, 2);</span>
+<span class="fc" id="L561">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L562">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, g.V() , 4);</span>
+<span class="fc" id="L563">	}</span>
+	
+	/**
+	 * Cas de test : V pair et k impair min
+	 */
+	@Test
+	public void testRegularLimite_MinImpairK() {
+<span class="fc" id="L570">		Graph g = GraphGenerator.regular(4, 1);</span>
+<span class="fc" id="L571">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L572">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, g.V() , 4);</span>
+<span class="fc" id="L573">	}</span>
+	
+	/**
+	 * Cas de test : V pair et k impair min +
+	 */
+	@Test
+	public void testRegularLimite_MinImpairPlusK() {
+<span class="fc" id="L580">		Graph g = GraphGenerator.regular(4, 3);</span>
+<span class="fc" id="L581">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, g.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L582">		assertEquals(&quot;Le graphe devrait avoir 4 sommets&quot;, g.V() , 4);</span>
+<span class="fc" id="L583">	}</span>
+	
+	
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>GraphGeneratorTest (2017-10-23 09:37:59)</div></body></html>
