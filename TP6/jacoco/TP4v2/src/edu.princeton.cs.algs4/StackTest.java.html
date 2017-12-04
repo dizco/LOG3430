@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>StackTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">TestComplet (2017-12-04 12:05:52)</a> &gt; <a href="../../index.html" class="el_group">TP4v2</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.princeton.cs.algs4</a> &gt; <span class="el_source">StackTest.java</span></div><h1>StackTest.java</h1><pre class="source lang-java linenums">package edu.princeton.cs.algs4;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+<span class="fc" id="L7">public class StackTest {</span>
+
+	@Test
+	public void testIsEmpty() {
+<span class="fc" id="L11">		Stack s = new Stack();</span>
+<span class="fc" id="L12">		assertTrue(s.isEmpty());</span>
+<span class="fc" id="L13">	}</span>
+
+	@Test
+	public void testSize() {
+<span class="fc" id="L17">		Stack s = new Stack();</span>
+<span class="fc" id="L18">		assertEquals(0, s.size());</span>
+<span class="fc" id="L19">	}</span>
+
+	@Test
+	public void testPush() {
+<span class="fc" id="L23">		Stack s = new Stack();</span>
+<span class="fc" id="L24">		s.push(2);</span>
+<span class="fc" id="L25">		assertEquals(1, s.size());</span>
+<span class="fc" id="L26">	}</span>
+
+	@Test
+	public void testPop() {
+<span class="fc" id="L30">		Stack s = new Stack();</span>
+<span class="fc" id="L31">		s.push(2);</span>
+<span class="fc" id="L32">		assertEquals(2, s.pop());</span>
+<span class="fc" id="L33">	}</span>
+
+	@Test
+	public void testPeek() {
+<span class="fc" id="L37">		Stack s = new Stack();</span>
+<span class="fc" id="L38">		s.push(2);</span>
+<span class="fc" id="L39">		assertEquals(2, s.peek());</span>
+<span class="fc" id="L40">	}</span>
+
+	@Test
+	public void testToString() {
+<span class="fc" id="L44">		Stack s = new Stack();</span>
+<span class="fc" id="L45">		s.push(2);</span>
+<span class="fc" id="L46">		assertEquals(&quot;2 &quot;, s.toString());</span>
+<span class="fc" id="L47">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>TestComplet (2017-12-04 12:05:52)</div></body></html>

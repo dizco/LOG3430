@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestComplet.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">TestComplet (2017-12-04 12:05:52)</a> &gt; <a href="../../index.html" class="el_group">TP4v2</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.princeton.cs.algs4</a> &gt; <span class="el_source">TestComplet.java</span></div><h1>TestComplet.java</h1><pre class="source lang-java linenums">package edu.princeton.cs.algs4;
+
+import static org.junit.Assert.*;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import org.junit.Test;
+
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+public class TestComplet extends TestCase {
+
+	public TestComplet(String testName) {
+<span class="fc" id="L16">        super(testName);</span>
+<span class="fc" id="L17">	}</span>
+	
+	/* Niveau 1 */
+	//On ne teste pas StdOut car on considère qu'il s'agit d'une classe utilitaire
+	
+	public void testBag() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+<span class="fc" id="L23">		BagTest test = new BagTest();</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">		for(Method method : test.getClass().getMethods()){</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">			if (method.getName().startsWith(&quot;test&quot;)){</span>
+<span class="fc" id="L26">				method.invoke(test);</span>
+			}
+		}
+<span class="fc" id="L29">	}</span>
+	
+	public void testQueue() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+<span class="fc" id="L32">		QueueTest test = new QueueTest();</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		for(Method method : test.getClass().getMethods()){</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">			if (method.getName().startsWith(&quot;test&quot;)){</span>
+<span class="fc" id="L35">				test.setUp();</span>
+<span class="fc" id="L36">				method.invoke(test);</span>
+			}
+		}
+<span class="fc" id="L39">	}</span>
+	
+	public void testStack() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+<span class="fc" id="L42">		StackTest test = new StackTest();</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">		for(Method method : test.getClass().getMethods()){</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">			if (method.getName().startsWith(&quot;test&quot;)){</span>
+<span class="fc" id="L45">				method.invoke(test);</span>
+			}
+		}
+<span class="fc" id="L48">	}</span>
+	
+	/* Niveau 2 */
+	public void testGraph() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+<span class="fc" id="L52">		GraphTest test = new GraphTest();</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">		for(Method method : test.getClass().getMethods()){</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">			if (method.getName().startsWith(&quot;test&quot;)){</span>
+<span class="fc" id="L55">				test.setUp();</span>
+<span class="fc" id="L56">				method.invoke(test);</span>
+			}
+		}
+<span class="fc" id="L59">	}</span>
+	
+	
+	/* Niveau 3 */
+	public void testBipartiteX() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+<span class="fc" id="L64">		BipartiteXTest test = new BipartiteXTest();</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		for(Method method : test.getClass().getMethods()){</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">			if (method.getName().startsWith(&quot;test&quot;)){</span>
+<span class="fc" id="L67">				method.invoke(test);</span>
+			}
+		}
+<span class="fc" id="L70">	}</span>
+	
+	public void testGraphGenerator() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+<span class="fc" id="L73">		GraphGeneratorTest test = new GraphGeneratorTest();</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">		for(Method method : test.getClass().getMethods()){</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">			if (method.getName().startsWith(&quot;test&quot;)){</span>
+<span class="fc" id="L76">				method.invoke(test);</span>
+			}
+		}
+<span class="fc" id="L79">	}</span>
+	
+	/* Niveau 4 */
+	public void testBipartiteXExtended() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+<span class="fc" id="L83">		BipartiteXExtendedTest test = new BipartiteXExtendedTest();</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">		for(Method method : test.getClass().getMethods()){</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">			if (method.getName().startsWith(&quot;test&quot;)){</span>
+<span class="fc" id="L86">				method.invoke(test);</span>
+			}
+		}
+<span class="fc" id="L89">	}</span>
+	
+	
+	public static junit.framework.Test suite() {
+<span class="fc" id="L93">        TestSuite suite = new TestSuite(&quot;Test MyClass&quot;);</span>
+<span class="fc" id="L94">        suite.addTest(new TestComplet(&quot;testBag&quot;));</span>
+<span class="fc" id="L95">        suite.addTest(new TestComplet(&quot;testQueue&quot;));</span>
+<span class="fc" id="L96">        suite.addTest(new TestComplet(&quot;testStack&quot;));</span>
+<span class="fc" id="L97">        suite.addTest(new TestComplet(&quot;testGraph&quot;));</span>
+<span class="fc" id="L98">        suite.addTest(new TestComplet(&quot;testBipartiteX&quot;));</span>
+<span class="fc" id="L99">        suite.addTest(new TestComplet(&quot;testGraphGenerator&quot;));</span>
+<span class="fc" id="L100">        suite.addTest(new TestComplet(&quot;testBipartiteXExtended&quot;));</span>
+<span class="fc" id="L101">        return suite;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>TestComplet (2017-12-04 12:05:52)</div></body></html>

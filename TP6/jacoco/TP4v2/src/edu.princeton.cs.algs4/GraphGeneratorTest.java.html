@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>GraphGeneratorTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">TestComplet (2017-12-04 12:05:52)</a> &gt; <a href="../../index.html" class="el_group">TP4v2</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.princeton.cs.algs4</a> &gt; <span class="el_source">GraphGeneratorTest.java</span></div><h1>GraphGeneratorTest.java</h1><pre class="source lang-java linenums">package edu.princeton.cs.algs4;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+<span class="fc" id="L7">public class GraphGeneratorTest {</span>
+
+	
+	
+	@Test
+	public void testSimpleVE() {
+<span class="fc" id="L13">		Graph simple = GraphGenerator.simple(15,32);</span>
+<span class="fc" id="L14">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L15">		assertEquals(&quot;Le graphe devrait avoir 15 sommets&quot;, simple.V() , 15);</span>
+<span class="fc" id="L16">	}</span>
+
+	@Test
+	public void testSimpleVP() {
+<span class="fc" id="L20">		Graph simple = GraphGenerator.simple(150,0.618281828);</span>
+<span class="fc" id="L21">		assertEquals(&quot;Le graphe devrait Ãªtre de type simple&quot;, simple.getTypeName() , &quot;simple&quot;);</span>
+<span class="fc" id="L22">		assertEquals(&quot;Le graphe devrait avoir 150 sommets&quot;, simple.V() , 150);</span>
+<span class="fc" id="L23">	}</span>
+	
+	@Test
+	public void testComplete() {
+<span class="fc" id="L27">		Graph complete = GraphGenerator.complete(1532);</span>
+<span class="fc" id="L28">		assertEquals(&quot;Le graphe devrait Ãªtre de type complete&quot;, complete.getTypeName() , &quot;complete&quot;);</span>
+<span class="fc" id="L29">		assertEquals(&quot;Le graphe devrait avoir 1532 sommets&quot;, complete.V() , 1532);</span>
+<span class="fc" id="L30">	}</span>
+	
+	@Test
+	public void testCompleteBipartite() {
+<span class="fc" id="L34">		Graph completeBipartite = GraphGenerator.completeBipartite(42,13);</span>
+<span class="fc" id="L35">		assertEquals(&quot;Le graphe devrait Ãªtre de type completeBipartite&quot;, completeBipartite.getTypeName() , &quot;completeBipartite&quot;);</span>
+<span class="fc" id="L36">		assertEquals(&quot;Le graphe devrait avoir 55 sommets&quot;, completeBipartite.V() , 42 + 13);</span>
+<span class="fc" id="L37">	}</span>
+	
+	@Test
+	public void testBipartiteE() {
+<span class="fc" id="L41">		Graph bipartite = GraphGenerator.bipartite(44,33, 222);</span>
+<span class="fc" id="L42">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, bipartite.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L43">		assertEquals(&quot;Le graphe devrait avoir 77 sommets&quot;, bipartite.V() , 77);</span>
+<span class="fc" id="L44">	}</span>
+	
+	@Test
+	public void testBipartiteP() {
+<span class="fc" id="L48">		Graph bipartite = GraphGenerator.bipartite(44,33, 0.75);</span>
+<span class="fc" id="L49">		assertEquals(&quot;Le graphe devrait Ãªtre de type bipartite&quot;, bipartite.getTypeName() , &quot;bipartite&quot;);</span>
+<span class="fc" id="L50">		assertEquals(&quot;Le graphe devrait avoir 77 sommets&quot;, bipartite.V() , 77);</span>
+<span class="fc" id="L51">	}</span>
+	
+	@Test
+	public void testPath() {
+<span class="fc" id="L55">		Graph path = GraphGenerator.path(123);</span>
+<span class="fc" id="L56">		assertEquals(&quot;Le graphe devrait Ãªtre de type path&quot;, path.getTypeName() , &quot;path&quot;);</span>
+<span class="fc" id="L57">		assertEquals(&quot;Le graphe devrait avoir 123 sommets&quot;, path.V() , 123);</span>
+<span class="fc" id="L58">	}</span>
+	
+	@Test
+	public void testBinaryTree() {
+<span class="fc" id="L62">		Graph binaryTree = GraphGenerator.binaryTree(321);</span>
+<span class="fc" id="L63">		assertEquals(&quot;Le graphe devrait Ãªtre de type binaryTree&quot;, binaryTree.getTypeName() , &quot;binaryTree&quot;);</span>
+<span class="fc" id="L64">		assertEquals(&quot;Le graphe devrait avoir 321 sommets&quot;, binaryTree.V() , 321);</span>
+<span class="fc" id="L65">	}</span>
+	
+	@Test
+	public void testCycle() {
+<span class="fc" id="L69">		Graph cycle = GraphGenerator.cycle(111);</span>
+<span class="fc" id="L70">		assertEquals(&quot;Le graphe devrait Ãªtre de type cycle&quot;, cycle.getTypeName() , &quot;cycle&quot;);</span>
+<span class="fc" id="L71">		assertEquals(&quot;Le graphe devrait avoir 111 sommets&quot;, cycle.V() , 111);</span>
+<span class="fc" id="L72">	}</span>
+	
+	@Test
+	public void testEulerianCycle() {
+<span class="fc" id="L76">		Graph eulerianCycle = GraphGenerator.eulerianCycle(12,21);</span>
+<span class="fc" id="L77">		assertEquals(&quot;Le graphe devrait Ãªtre de type eulerianCycle&quot;, eulerianCycle.getTypeName() , &quot;eulerianCycle&quot;);</span>
+<span class="fc" id="L78">		assertEquals(&quot;Le graphe devrait avoir 12 sommets&quot;, eulerianCycle.V() , 12);</span>
+<span class="fc" id="L79">	}</span>
+	
+	@Test
+	public void testEulerianPath() {
+<span class="fc" id="L83">		Graph eulerianPath = GraphGenerator.eulerianPath(23,32);</span>
+<span class="fc" id="L84">		assertEquals(&quot;Le graphe devrait Ãªtre de type eulerianPath&quot;, eulerianPath.getTypeName() , &quot;eulerianPath&quot;);</span>
+<span class="fc" id="L85">		assertEquals(&quot;Le graphe devrait avoir 23 sommets&quot;, eulerianPath.V() , 23);</span>
+<span class="fc" id="L86">	}</span>
+	
+	@Test
+	public void testWheel() {
+<span class="fc" id="L90">		Graph wheel = GraphGenerator.wheel(42);</span>
+<span class="fc" id="L91">		assertEquals(&quot;Le graphe devrait Ãªtre de type wheel&quot;, wheel.getTypeName() , &quot;wheel&quot;);</span>
+<span class="fc" id="L92">		assertEquals(&quot;Le graphe devrait avoir 42 sommets&quot;, wheel.V() , 42);</span>
+<span class="fc" id="L93">	}</span>
+	
+	@Test
+	public void testStar() {
+<span class="fc" id="L97">		Graph star = GraphGenerator.star(77);</span>
+<span class="fc" id="L98">		assertEquals(&quot;Le graphe devrait Ãªtre de type star&quot;, star.getTypeName() , &quot;star&quot;);</span>
+<span class="fc" id="L99">		assertEquals(&quot;Le graphe devrait avoir 77 sommets&quot;, star.V() , 77);</span>
+<span class="fc" id="L100">	}</span>
+	
+	@Test
+	public void testRegular() {
+<span class="fc" id="L104">		Graph regular = GraphGenerator.regular(66, 14);</span>
+<span class="fc" id="L105">		assertEquals(&quot;Le graphe devrait Ãªtre de type regular&quot;, regular.getTypeName() , &quot;regular&quot;);</span>
+<span class="fc" id="L106">		assertEquals(&quot;Le graphe devrait avoir 66 sommets&quot;, regular.V() , 66);</span>
+<span class="fc" id="L107">	}</span>
+	
+	@Test
+	public void testTree() {
+<span class="fc" id="L111">		Graph tree = GraphGenerator.tree(1000);</span>
+<span class="fc" id="L112">		assertEquals(&quot;Le graphe devrait Ãªtre de type tree&quot;, tree.getTypeName() , &quot;tree&quot;);</span>
+<span class="fc" id="L113">		assertEquals(&quot;Le graphe devrait avoir 1000 sommets&quot;, tree.V() , 1000);</span>
+<span class="fc" id="L114">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>TestComplet (2017-12-04 12:05:52)</div></body></html>

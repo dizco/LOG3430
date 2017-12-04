@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>QueueTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">TestComplet (2017-12-04 12:05:52)</a> &gt; <a href="../../index.html" class="el_group">TP4v2</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.princeton.cs.algs4</a> &gt; <span class="el_source">QueueTest.java</span></div><h1>QueueTest.java</h1><pre class="source lang-java linenums">package edu.princeton.cs.algs4;
+
+import static org.junit.Assert.*;
+
+import java.util.NoSuchElementException;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+
+<span class="fc" id="L12">public class QueueTest {</span>
+
+	Queue q;
+	
+	@Before  
+    public void setUp()
+    {
+<span class="fc" id="L19">		q = new Queue();</span>
+<span class="fc" id="L20">    }</span>
+	
+	/*
+	 * Test du chemin de l'état vide à l'état vide
+	 */
+	@Test
+	public void testIsEmptyVide() {
+<span class="fc" id="L27">		q.isEmpty();</span>
+<span class="fc" id="L28">		assertEmpty();</span>
+<span class="fc" id="L29">	}</span>
+	
+	/*
+	 * Test du chemin de l'état vide à l'état vide
+	 */
+	@Test
+	public void testToStringVide() {
+<span class="fc" id="L36">		q.toString();</span>
+<span class="fc" id="L37">		assertEmpty();</span>
+<span class="fc" id="L38">	}</span>
+	
+	/*
+	 * Test du chemin de l'état vide à l'état vide
+	 */
+	@Test
+	public void testSizeVide() {
+<span class="fc" id="L45">		q.size();</span>
+<span class="fc" id="L46">		assertEmpty();</span>
+<span class="fc" id="L47">	}</span>
+	
+	/*
+	 * Test du chemin de l'état vide à l'état vide
+	 */
+	@Test
+	public void testIteratorVide() {
+<span class="fc" id="L54">		q.iterator();</span>
+<span class="fc" id="L55">		assertEmpty();</span>
+<span class="fc" id="L56">	}</span>
+	
+	/*
+	 * Test du chemin de l'état vide à l'état erreur
+	 */
+	@Test
+	public void testDequeueVide() {
+		try {
+<span class="nc" id="L64">			q.dequeue();</span>
+<span class="nc" id="L65">			fail(&quot;Dequeue ne devrait pas fonctionner avec une queue vide&quot;);</span>
+<span class="nc" id="L66">		}</span>
+<span class="fc" id="L67">		catch (NoSuchElementException e) {</span>
+			//Catch
+		}
+<span class="fc" id="L70">	}</span>
+	
+	/*
+	 * Test du chemin de l'état vide à l'état erreur
+	 */
+	@Test
+	public void testPeekVide() {
+		try {
+<span class="nc" id="L78">			q.peek();</span>
+<span class="nc" id="L79">			fail(&quot;Peek ne devrait pas fonctionner avec une queue vide&quot;);</span>
+<span class="nc" id="L80">		}</span>
+<span class="fc" id="L81">		catch (NoSuchElementException e) {</span>
+			//Catch
+		}
+<span class="fc" id="L84">	}</span>
+	
+	/*
+	 * Test du chemin de l'état vide à l'état non vide
+	 */
+	@Test
+	public void testEnqueueVide() {
+<span class="fc" id="L91">		q.enqueue(&quot;item&quot;);</span>
+<span class="fc" id="L92">		assertNotEmpty();</span>
+<span class="fc" id="L93">	}</span>
+	
+	/*
+	 * Test du chemin de l'état non vide à l'état vide
+	 */
+	@Test
+	public void testDequeueNonVide() {
+<span class="fc" id="L100">		q.enqueue(&quot;item&quot;);</span>
+<span class="fc" id="L101">		q.dequeue();</span>
+<span class="fc" id="L102">		assertEmpty();</span>
+<span class="fc" id="L103">	}</span>
+	
+	/*
+	 * Test du chemin de l'état non vide à l'état non vide
+	 */
+	@Test
+	public void testToStringNonVide() {
+<span class="fc" id="L110">		q.enqueue(&quot;item&quot;);</span>
+<span class="fc" id="L111">		q.toString();</span>
+<span class="fc" id="L112">		assertNotEmpty();</span>
+<span class="fc" id="L113">	}</span>
+	
+	/*
+	 * Test du chemin de l'état non vide à l'état non vide
+	 */
+	@Test
+	public void testSizeNonVide() {
+<span class="fc" id="L120">		q.enqueue(&quot;item&quot;);</span>
+<span class="fc" id="L121">		q.size();</span>
+<span class="fc" id="L122">		assertNotEmpty();</span>
+<span class="fc" id="L123">	}</span>
+	
+	/*
+	 * Test du chemin de l'état non vide à l'état non vide
+	 */
+	@Test
+	public void testIteratorNonVide() {
+<span class="fc" id="L130">		q.enqueue(&quot;item&quot;);</span>
+<span class="fc" id="L131">		q.iterator();</span>
+<span class="fc" id="L132">		assertNotEmpty();</span>
+<span class="fc" id="L133">	}</span>
+
+	/*
+	 * Test du chemin de l'état non vide à l'état non vide
+	 */
+	@Test
+	public void testEnqueueNonVide() {
+<span class="fc" id="L140">		q.enqueue(&quot;item&quot;);</span>
+<span class="fc" id="L141">		q.enqueue(&quot;item2&quot;);</span>
+<span class="fc" id="L142">		assertNotEmpty();</span>
+<span class="fc" id="L143">	}</span>
+
+	/*
+	 * Test du chemin de l'état non vide à l'état non vide
+	 */
+	@Test
+	public void testPeekNonVide() {
+<span class="fc" id="L150">		q.enqueue(&quot;item&quot;);</span>
+<span class="fc" id="L151">		q.peek();</span>
+<span class="fc" id="L152">		assertNotEmpty();</span>
+<span class="fc" id="L153">	}</span>
+
+	/*
+	 * Test du chemin de l'état non vide à l'état non vide
+	 */
+	@Test
+	public void testIsEmptyNonVide() {
+<span class="fc" id="L160">		q.enqueue(&quot;item&quot;);</span>
+<span class="fc" id="L161">		q.isEmpty();</span>
+<span class="fc" id="L162">		assertNotEmpty();</span>
+<span class="fc" id="L163">	}</span>
+
+	/*
+	 * Test du chemin de l'état non vide à l'état non vide avec condition spéciale que n &gt; 1
+	 */
+	@Test
+	public void testDequeue2NonVide() {
+<span class="fc" id="L170">		q.enqueue(&quot;item&quot;);</span>
+<span class="fc" id="L171">		q.enqueue(&quot;item2&quot;);</span>
+<span class="fc" id="L172">		q.dequeue();</span>
+<span class="fc" id="L173">		assertNotEmpty();</span>
+<span class="fc" id="L174">	}</span>
+
+	/*
+	 * Fonction qui assert que la queue soit vide
+	 */
+	public void assertEmpty() {
+<span class="fc" id="L180">		assertEquals(&quot;Queue devrait etre vide&quot;, 0, q.size());</span>
+<span class="fc" id="L181">	}</span>
+	/*
+	 * Fonction qui assert que la queue soit non vide
+	 */
+	public void assertNotEmpty() {
+<span class="pc bpc" id="L186" title="1 of 2 branches missed.">		assertTrue(&quot;Queue ne devrait pas etre vide&quot;, q.size() &gt; 0);</span>
+<span class="fc" id="L187">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>TestComplet (2017-12-04 12:05:52)</div></body></html>

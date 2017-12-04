@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>BipartiteXExtended.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">TestComplet (2017-12-04 12:05:52)</a> &gt; <a href="../../index.html" class="el_group">TP4v2</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.princeton.cs.algs4</a> &gt; <span class="el_source">BipartiteXExtended.java</span></div><h1>BipartiteXExtended.java</h1><pre class="source lang-java linenums">package edu.princeton.cs.algs4;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * @author Rodrigo Morales
+ * This class extends BipartiteX with new utlitary methods.
+ * The objective is to avoid breaking the compatibility with
+ * exisiting classes in algs4, and for further updates.
+ *
+ */
+public class BipartiteXExtended extends BipartiteX {
+
+	private Graph myGraph;
+	public BipartiteXExtended(Graph G) {
+<span class="fc" id="L18">		super(G);</span>
+<span class="fc" id="L19">		myGraph = G;</span>
+		
+<span class="fc" id="L21">	}</span>
+	
+		
+	public List&lt;Integer&gt; getVerticesWithAnEdgeToB(int B) {
+<span class="fc" id="L25">        int V=myGraph.V();</span>
+<span class="fc" id="L26">        List&lt;Integer&gt; Vertices = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (int v = 0; v &lt; V; v++) {</span>
+<span class="fc" id="L28">        	Iterator&lt;Integer&gt; iter = myGraph.adj(v).iterator();</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        	while (iter.hasNext()){</span>
+<span class="fc" id="L30">        		int w = iter.next();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        		if (w==B)</span>
+<span class="fc" id="L32">        			Vertices.add(v);</span>
+        	}
+        }
+<span class="fc" id="L35">        return Vertices;</span>
+    }
+
+	
+	   public static void main(String[] args) {
+<span class="nc" id="L40">	        int V1 = Integer.parseInt(args[0]);</span>
+<span class="nc" id="L41">	        int V2 = Integer.parseInt(args[1]);</span>
+<span class="nc" id="L42">	        int E  = Integer.parseInt(args[2]);</span>
+<span class="nc" id="L43">	        int F  = Integer.parseInt(args[3]);</span>
+
+	        // create random bipartite graph with V1 vertices on left side,
+	        // V2 vertices on right side, and E edges; then add F random edges
+<span class="nc" id="L47">	        Graph G = GraphGenerator.bipartite(V1, V2, E);</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">	        for (int i = 0; i &lt; F; i++) {</span>
+<span class="nc" id="L49">	            int v = StdRandom.uniform(V1 + V2);</span>
+<span class="nc" id="L50">	            int w = StdRandom.uniform(V1 + V2);</span>
+<span class="nc" id="L51">	            G.addEdge(v, w);</span>
+	        }
+
+<span class="nc" id="L54">	        StdOut.println(G);</span>
+
+
+<span class="nc" id="L57">	        BipartiteXExtended b = new BipartiteXExtended(G);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">	        if (b.isBipartite()) {</span>
+<span class="nc" id="L59">	            StdOut.println(&quot;Graph is bipartite&quot;);</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">	            for (int v = 0; v &lt; G.V(); v++) {</span>
+<span class="nc" id="L61">	                StdOut.println(v + &quot;: &quot; + b.color(v));</span>
+	            }
+<span class="nc" id="L63">	        }</span>
+	        else {
+<span class="nc" id="L65">	            StdOut.print(&quot;Graph has an odd-length cycle: &quot;);</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">	            for (int x : b.oddCycle()) {</span>
+<span class="nc" id="L67">	                StdOut.print(x + &quot; &quot;);</span>
+	            }
+<span class="nc" id="L69">	            StdOut.println();</span>
+	        }
+	        
+<span class="nc" id="L72">	        List&lt;Integer&gt; VerticesWithAnEdgeToFirstVertex = b.getVerticesWithAnEdgeToB(0);</span>
+<span class="nc" id="L73">	        StdOut.println(&quot;VerticesWithAnEdgeToFirstVertex&quot;);</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">	        for (int v: VerticesWithAnEdgeToFirstVertex){</span>
+<span class="nc" id="L75">	        	StdOut.print(v+&quot; &quot;);</span>
+	        }
+<span class="nc" id="L77">	        StdOut.println();</span>
+<span class="nc" id="L78">	    }</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>TestComplet (2017-12-04 12:05:52)</div></body></html>
