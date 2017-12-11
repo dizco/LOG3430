@@ -6,6 +6,9 @@ import org.junit.Test;
 
 public class BipartiteXExtendedTest {
 
+	/*
+	 * Test de la sortie de getVerticesWithAnEdgeToB()
+	 */
 	@Test
 	public void testGetVerticesWithAnEdgeToB() {
 		BipartiteXExtended b = new BipartiteXExtended(GraphGenerator.complete(10));

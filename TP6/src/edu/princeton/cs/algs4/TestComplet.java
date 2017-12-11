@@ -88,7 +88,7 @@ public class TestComplet extends TestCase {
 		}
 	}
 	
-	
+	/* Suite de tests servant à définir l'ordre des tests */
 	public static junit.framework.Test suite() {
         TestSuite suite = new TestSuite("Test MyClass");
         suite.addTest(new TestComplet("testBag"));

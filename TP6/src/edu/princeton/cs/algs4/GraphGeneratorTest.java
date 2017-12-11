@@ -5,9 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class GraphGeneratorTest {
-
 	
-	
+	/*
+	 * Test de la création d'un graphe simple
+	 */
 	@Test
 	public void testSimpleVE() {
 		Graph simple = GraphGenerator.simple(15,32);
@@ -15,6 +16,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 15 sommets", simple.V() , 15);
 	}
 
+	/*
+	 * Test de la création d'un graphe simple
+	 */
 	@Test
 	public void testSimpleVP() {
 		Graph simple = GraphGenerator.simple(150,0.618281828);
@@ -22,6 +26,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 150 sommets", simple.V() , 150);
 	}
 	
+	/*
+	 * Test de la création d'un graphe complete
+	 */
 	@Test
 	public void testComplete() {
 		Graph complete = GraphGenerator.complete(1532);
@@ -29,6 +36,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 1532 sommets", complete.V() , 1532);
 	}
 	
+	/*
+	 * Test de la création d'un graphe completeBipartite
+	 */
 	@Test
 	public void testCompleteBipartite() {
 		Graph completeBipartite = GraphGenerator.completeBipartite(42,13);
@@ -36,6 +46,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 55 sommets", completeBipartite.V() , 42 + 13);
 	}
 	
+	/*
+	 * Test de la création d'un graphe bipartite
+	 */
 	@Test
 	public void testBipartiteE() {
 		Graph bipartite = GraphGenerator.bipartite(44,33, 222);
@@ -43,6 +56,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 77 sommets", bipartite.V() , 77);
 	}
 	
+	/*
+	 * Test de la création d'un graphe bipartite
+	 */
 	@Test
 	public void testBipartiteP() {
 		Graph bipartite = GraphGenerator.bipartite(44,33, 0.75);
@@ -50,6 +66,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 77 sommets", bipartite.V() , 77);
 	}
 	
+	/*
+	 * Test de la création d'un graphe path
+	 */
 	@Test
 	public void testPath() {
 		Graph path = GraphGenerator.path(123);
@@ -57,6 +76,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 123 sommets", path.V() , 123);
 	}
 	
+	/*
+	 * Test de la création d'un graphe binaryTree
+	 */
 	@Test
 	public void testBinaryTree() {
 		Graph binaryTree = GraphGenerator.binaryTree(321);
@@ -64,6 +86,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 321 sommets", binaryTree.V() , 321);
 	}
 	
+	/*
+	 * Test de la création d'un graphe cycle
+	 */
 	@Test
 	public void testCycle() {
 		Graph cycle = GraphGenerator.cycle(111);
@@ -71,6 +96,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 111 sommets", cycle.V() , 111);
 	}
 	
+	/*
+	 * Test de la création d'un graphe eulerianCycle
+	 */
 	@Test
 	public void testEulerianCycle() {
 		Graph eulerianCycle = GraphGenerator.eulerianCycle(12,21);
@@ -78,6 +106,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 12 sommets", eulerianCycle.V() , 12);
 	}
 	
+	/*
+	 * Test de la création d'un graphe eulerianPath
+	 */
 	@Test
 	public void testEulerianPath() {
 		Graph eulerianPath = GraphGenerator.eulerianPath(23,32);
@@ -85,6 +116,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 23 sommets", eulerianPath.V() , 23);
 	}
 	
+	/*
+	 * Test de la création d'un graphe wheel
+	 */
 	@Test
 	public void testWheel() {
 		Graph wheel = GraphGenerator.wheel(42);
@@ -92,6 +126,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 42 sommets", wheel.V() , 42);
 	}
 	
+	/*
+	 * Test de la création d'un graphe star
+	 */
 	@Test
 	public void testStar() {
 		Graph star = GraphGenerator.star(77);
@@ -99,6 +136,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 77 sommets", star.V() , 77);
 	}
 	
+	/*
+	 * Test de la création d'un graphe regular
+	 */
 	@Test
 	public void testRegular() {
 		Graph regular = GraphGenerator.regular(66, 14);
@@ -106,6 +146,9 @@ public class GraphGeneratorTest {
 		assertEquals("Le graphe devrait avoir 66 sommets", regular.V() , 66);
 	}
 	
+	/*
+	 * Test de la création d'un graphe tree
+	 */
 	@Test
 	public void testTree() {
 		Graph tree = GraphGenerator.tree(1000);

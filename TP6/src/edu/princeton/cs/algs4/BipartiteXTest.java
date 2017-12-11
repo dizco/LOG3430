@@ -10,8 +10,8 @@ import org.junit.Test;
 
 public class BipartiteXTest {
 
-	/**
-	 * Test method for {@link edu.princeton.cs.algs4.BipartiteX#isBipartite()}.
+	/*
+	 * Test de la sortie de isBipartite()
 	 */
 	@Test
 	public void testIsBipartite() {
@@ -20,8 +20,8 @@ public class BipartiteXTest {
 		assertTrue(b.isBipartite());
 	}
 
-	/**
-	 * Test method for {@link edu.princeton.cs.algs4.BipartiteX#color(int)}.
+	/*
+	 * Test de la sortie de color()
 	 */
 	@Test
 	public void testColor() {
@@ -30,8 +30,8 @@ public class BipartiteXTest {
 		assertEquals(false, b.color(5));
 	}
 
-	/**
-	 * Test method for {@link edu.princeton.cs.algs4.BipartiteX#oddCycle()}.
+	/*
+	 * Test de la sortie de oddCycle()
 	 */
 	@Test
 	public void testOddCycle() {
